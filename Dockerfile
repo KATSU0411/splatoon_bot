@@ -8,5 +8,5 @@ RUN pip install pyyaml
 RUN pip install ahk
 RUN pip install pysimplegui
 
-CMD ["python3", "main.py"]
+CMD ["python3", "src/main.py"]
 
