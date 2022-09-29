@@ -42,15 +42,18 @@ layout = [
 
 window = SG.Window(title='splatoon auto move voice chat tool', layout=layout)
 
+window_title = ''
+
 while True:
-    event, values = window.read()
+    event, values = window.read(timeout=100)
     if event == SG.WIN_CLOSED:
         break
 
     if event == 'START':
-        title = values['WINDOW_TITLE']
+        window_title = values['WINDOW_TITLE']
 
-        rect = getWindowRect(title)
+    if window_title != '':
+        rect = getWindowRect(window_title)
         img = getScreenShot(rect)
 
         window['CAPTURE_IMAGE'].Update(source=img)
