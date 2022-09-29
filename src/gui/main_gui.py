@@ -25,7 +25,8 @@ window_titles = [info.title.decode('utf-8', errors='ignore') for info in window_
 
 layout = [  
             [SG.Text('line text')],
-            [SG.Combo(window_titles, default_value='キャプチャする対象を選択', key='WINDOW_TITLE', enable_events=True)]
+            [SG.Combo(window_titles, default_value='キャプチャする対象を選択', key='WINDOW_TITLE')],
+            [SG.Button(button_text='キャプチャ開始', key='START')]
         ]
 
 window = SG.Window(title='splatoon auto move voice chat tool', layout=layout)
@@ -35,7 +36,7 @@ while True:
     if event == SG.WIN_CLOSED:
         break
 
-    if event == 'WINDOW_TITLE':
+    if event == 'START':
         title = values['WINDOW_TITLE']
         print(title)
 
