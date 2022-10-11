@@ -1,2 +1,4 @@
 token.yaml
+**/gcp-key.json
 **/__pycache__
+**/test_images
