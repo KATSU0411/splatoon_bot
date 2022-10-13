@@ -2,7 +2,7 @@ import cv2
 import os
 import numpy as np
 
-IMG_PATH = "test_images/grouped/001.jpg"
+IMG_PATH = "test_images/matching/001.jpg"
 
 def createLaplacian(img_path):
     img = cv2.imread(img_path)
@@ -41,6 +41,7 @@ def templateMatching(img_path, template_path):
 
     return img_path
 
-saturation_path = extractSaturation(IMG_PATH)
-createLaplacian(saturation_path)
-createSobel(saturation_path)
+if __name__ == '__main__':
+    saturation_path = extractSaturation(IMG_PATH)
+    createLaplacian(saturation_path)
+    createSobel(saturation_path)
