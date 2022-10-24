@@ -53,23 +53,16 @@ def ocrPngFile(filePath):
 
     result = None
     with open(OCR_OUTPUT_FILE_NAME, encoding='utf-8') as f:
-        lines = f.read().splitlines()
-        if len(lines) == 3: 
-            result = lines[2]
+        result = f.read().splitlines()[2:]
 
     return result
 
 
 if __name__ == '__main__':
 
-
-    for i in range(10):
-
-        IMG_PATH_BEFORE = os.getcwd() + '/test_images/before_grouping/clip_00' + str(i) +'.png'
-        # img = cv2.imread(IMG_PATH_BEFORE)
-        # img_binary, img_erosion, img_path1, img_path2, img_path3 = skeleton.createSkeltonImage(img)
-
-        ocr_result = ocrPngFile(IMG_PATH_BEFORE)
-        print(ocr_result)
+    IMG_PATH_BEFORE = os.getcwd() + '/test_images/before_grouping/clip_all.png'
+    img_binary, img_erosion, img_path1, img_path2, img_path3 = skeleton.createSkeltonImage(IMG_PATH_BEFORE)
+    ocr_result = ocrPngFile(img_binary)
+    print(ocr_result)
 
 

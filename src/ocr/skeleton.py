@@ -8,7 +8,8 @@ IMG_OUT_PATH1 = os.getcwd() + "/test_images/out/skelton_test1.png"
 IMG_OUT_PATH2 = os.getcwd() + "/test_images/out/skelton_test2.png"
 IMG_OUT_PATH3 = os.getcwd() + "/test_images/out/skelton_test3.png"
 
-def createSkeltonImage(img):
+def createSkeltonImage(imgPath):
+    img = cv2.imread(imgPath)
     img_gray =  cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
     _, img_binary = cv2.threshold(img_gray, 180, 255, cv2.THRESH_BINARY)
 
