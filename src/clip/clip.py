@@ -16,6 +16,19 @@ def clipWaitingPlayerName(originImg, playerNum):
 
     return clipImg
 
+def clipWaitingAllPlayerName(originImg):
+    originHeight, originWidth = img.shape[:2]
+
+    nameSizeWidth = int(originWidth * WAITING_PLYER_NAME_SIZE['width'])
+    nameSizeHeight = int(originHeight * WAITING_PLYER_NAME_SIZE['height'])
+
+    startposX = int(originWidth * CLIP_START_POS['x'])
+    startposY = int(originHeight * CLIP_START_POS['y'])
+
+    clipImg = originImg[startposY : startposY + nameSizeHeight * 10, startposX : startposX + nameSizeWidth]
+
+    return clipImg
+
 
 if __name__ == '__main__':
     img = cv2.imread('test_images/before_grouping/001.jpg')
@@ -23,3 +36,6 @@ if __name__ == '__main__':
     for i in range(10):
         clipImg = clipWaitingPlayerName(img, i)
         cv2.imwrite('test_images/before_grouping/clip_00' + str(i) + '.png', clipImg)
+
+    clipImg = clipWaitingAllPlayerName(img)
+    cv2.imwrite('test_images/before_grouping/clip_all.png', clipImg)
