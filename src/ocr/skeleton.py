@@ -2,17 +2,13 @@ import cv2
 import os
 import numpy as np
 
-IMG_PATH1 = os.getcwd() + "/test_images/before_grouping/cut_001.jpg"
-IMG_PATH2 = os.getcwd() + "/test_images/grouped/cut_001.jpg"
-
 IMG_OUT_PATH_BINARY = os.getcwd() + "/test_images/out/binary.png"
 IMG_OUT_PATH_EROSION = os.getcwd() + "/test_images/out/erosion.png"
 IMG_OUT_PATH1 = os.getcwd() + "/test_images/out/skelton_test1.png"
 IMG_OUT_PATH2 = os.getcwd() + "/test_images/out/skelton_test2.png"
 IMG_OUT_PATH3 = os.getcwd() + "/test_images/out/skelton_test3.png"
 
-def createSkeltonImage():
-    img = cv2.imread(IMG_PATH1)
+def createSkeltonImage(img):
     img_gray =  cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
     _, img_binary = cv2.threshold(img_gray, 180, 255, cv2.THRESH_BINARY)
 
